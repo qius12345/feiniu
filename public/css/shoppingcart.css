@@ -1,0 +1,184 @@
+#main{
+    /*min-height:500px;*/
+    background:#EBEBEB;
+    width:100%;
+    margin:20px auto 0;
+    padding-top:20px;
+    position:relative;
+   padding-bottom:70px;
+}
+table{
+    border-collapse: collapse;
+    width:980px;
+}
+table thead{
+    height:40px;
+    line-height:40px;
+    text-align:left;
+    background:#F7F7F7;
+}
+table thead th{
+    padding-left:5px;
+}
+#foot-box{
+    border-top:none;
+}
+#main .header{
+    margin:0 auto;
+    width:980px;
+    background:#fff;
+    border:1px solid #EBEBEB;
+    box-shadow:0 0 1px;
+}
+#main::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+#main tbody input[type='checkbox']{
+    float:left;
+    margin-right: 10px;
+    background:#fff;
+}
+#main tbody div{
+    border:1px solid #ddd;
+    text-align:center;
+    padding:5px;
+    background:#fff;
+    width:120px;
+}
+#main tbody div img{
+    width:90%;
+    transition:transform .5s linear;
+}
+#main tbody{
+    /*background:#FEF8E0;*/
+    background:#fff;
+}
+#main tbody tr:hover{
+    background:#FEF8E0;
+}
+table td{
+     padding-right:10px;
+    vertical-align: middle;
+}
+#main tbody td{
+    padding:5px;
+}
+#main tbody input[type='text']{
+    border:1px solid #ddd;
+    width:40px;
+    height:24px;
+    box-sizing:border-box;
+    text-align:center;
+}
+#main tbody button{
+    background:#fff;
+    /*outline:0;*/
+    height:24px;
+    width:24px;
+    border:1px solid #ddd;
+    cursor:pointer;
+}
+#main tbody tr:not(:last-child){
+     border-bottom:2px solid #FCF3F8;
+}
+#main tbody div img:hover{
+    transform:scale(1.1);
+}
+/*购物车总计*/
+.cart-count{
+    position:absolute;
+    width:100%;
+    bottom:0;
+    height:64px;
+
+}
+.cart-count .contain{
+    width:980px;
+    height:60px;
+    margin:0 auto;
+    background:#fff;
+   padding:10px 9px;
+    box-sizing:border-box;
+    border:1px solid #EBEBEB;
+    border-bottom:0;
+    box-shadow:0 0 1px;
+}
+.cart-co-rt{
+    float:right;
+}
+.total-btn{
+    width:80px;
+    height:35px;
+    text-align:center;
+    color:#fff;
+    font-size:14px;
+    background:#C20053;
+    border:0;
+    margin:0 10px;
+}
+.count-details{
+    font-size:14px;
+}
+/*顶部*/
+.logo{
+    width:980px;
+    margin:10px auto;
+}
+.sh-top{
+    width:1190px;
+    height:35px;
+    line-height:35px;
+    margin:0 auto;
+
+}
+.top-list ul>li{
+    float:left;
+    width:48px;
+    padding:0 8px;
+    margin-right:2px;
+    border:1px solid transparent;
+    border-top:none;
+}
+.top-list ul>li a{
+    display:inline-block;
+    height:35px;
+    width:48px;
+}
+.sh-header{
+    background:#F7F7F7;
+    height:35px;
+    border-bottom:1px solid #DEDEDE;
+}
+.top-list ul>li.line{
+    width:1px;
+    height:12px;
+    background:#cecece;
+    padding:0;
+    margin-top:12px;
+    border:0;
+}
+.top-cart a{
+    color:#C20053;
+}
+.top-list ul>li:hover{
+    background:#fff;
+    border-left:1px solid #DEDEDE;
+    border-right:1px solid #DEDEDE;
+}
+.top-list ul>li.top-ser ol{
+    display:none;
+}
+.top-list ul>li.top-ser:hover{
+    border:1px solid #DEDEDE;
+    border-top:0;
+}
+.top-list ul>li.top-ser:hover ol{
+    display:block;
+}
+#user{
+    display:inline-block;
+    width:100px;
+    height:30px;
+}

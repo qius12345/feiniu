@@ -1,0 +1,759 @@
+/*************************************************
+ *  name frontEnd  飞牛网弹出登录
+ *  Copyright http://www.feiniu.com/
+ *  Designed and built by frontEnd  @jie.tang
+ *  date 2015/06/18
+ *  update by @xinyu.li 20160918
+ ************************************************/
+
+
+/**登录框iframe在火狐下遮挡一点文字bugfix**/
+
+html {
+    /*padding-top: 1px;*/
+    background: transparent;
+}
+
+
+/* 公共css */
+
+.hide {
+    display: none;
+}
+
+.fr {
+    float: right;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+.pl15 {
+    padding-left: 15px;
+}
+.u-diaolog-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /*background: url(../../images/member/yin.png?170726) repeat;*/
+    background: #000;
+    opacity: 0.8;
+    filter: "alpha(opacity=80)"; /* IE 8 */
+    filter: alpha(opacity=80);   /* IE 4-7 */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+#loginIframe {
+    height: 426px!important;
+    /*margin-top: -1px;*/
+    background: transparent;
+}
+/*---------------------------------------*/
+
+.u-diaolog-login {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 357px;
+    height: 475px;
+    /*border: 6px solid #d4d4d4;*/
+    /*background: #fff;*/
+    background: transparent;
+    overflow: hidden;
+    font-family: "Microsoft YaHei";
+    z-index: 1001;
+}
+
+.u-title {
+    position: relative;
+    width: 345px;
+    height: 40px;
+    line-height: 40px;
+    background: #d7063b;
+    margin-bottom: 0!important;
+    border: 6px solid #d4d4d4;
+    border-bottom: none;
+}
+
+.u-title h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.u-title i {
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -16px -40px;
+    cursor: pointer;
+}
+
+.u-title i:hover {
+    background-position: -30px -40px;
+}
+
+
+/*-----------------------------------------*/
+
+.u-dialog-login-content {
+    position: relative;
+    width: 305px;
+    min-height: 369px;
+    padding: 0 20px;
+    border: 6px solid #d4d4d4;
+    border-top: none;
+    background: #fff;
+    font-family: "Microsoft YaHei";
+}
+
+.u-dialog-login-content .m-switch {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 0;
+}
+.u-dialog-login-content .m-switch em {
+  display: inline-block;
+  _display: none;
+  display: none\9;
+  position: absolute;
+  right: 17px;
+  bottom: -45px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 44px solid transparent;
+  border-right-color: #fff;
+  transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+}
+.u-dialog-login-content .m-switch a {
+  display: inline-block;
+  width: 61px;
+  height: 61px;
+}
+.u-dialog-login-content .m-switch .u-pc {
+  display: none;
+  background: url(../../images/member/login-pc.png?170726) no-repeat;
+}
+.u-dialog-login-content .m-switch .u-qrcode {
+  background: url(../../images/member/login-qr.png?170726) no-repeat;
+}
+.u-dialog-login-content .m-switch.pc .u-pc {
+  display: inline-block;
+}
+.u-dialog-login-content .m-switch.pc .u-qrcode {
+  display: none;
+}
+.u-dialog-login-content .u-switch-tip {
+  position: absolute;
+  left: 153px;
+  top: 5px;
+  padding: 1px 10px;
+  color: #666666;
+  border: 1px solid #ffd8a4;
+  background-color: #fffdee;
+}
+.u-dialog-login-content .u-switch-tip em {
+  border-color: transparent transparent transparent #ffd8a4;
+  border-width: 5px;
+  left: 105px;
+  top: 5px;
+  border-style: solid;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+}
+.u-dialog-login-content .u-switch-tip span {
+  border-color: transparent transparent transparent #fff;
+  border-width: 5px;
+  border-style: solid;
+  height: 0;
+  left: 104px;
+  top: 5px;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  z-index: 1;
+}
+.u-dialog-login-content .m-login-qr .g-qr-body {
+  padding-top: 40px;
+}
+.u-dialog-login-content .m-login-qr h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  position: relative;
+}
+.u-dialog-login-content .m-login-qr .qr-ct {
+  margin-top: 16px;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .qr-code {
+  position: relative;
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #f6f6f6;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .qr-code img {
+  width: 160px;
+  height: 160px;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 160px;
+  height: 160px;
+  background: #333;
+  opacity: 0.8;
+  z-index: 1;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .m-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 160px;
+  height: 160px;
+  z-index: 2;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .m-tip p {
+  text-align: center;
+  color: #fff;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .m-tip p.tip {
+  margin-top: 44px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .m-tip .btn-refresh {
+  margin-top: 21px;
+  display: inline-block;
+  color: #fff;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #d7063b;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .err-msg .m-tip .btn-refresh:hover {
+  background-color: #d5065f;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .msg {
+  margin-top: 26px;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .msg p {
+  color: #666;
+  text-align: center;
+}
+.u-dialog-login-content .m-login-qr .qr-ct .msg p a {
+  margin: 0 5px;
+  color: #06c;
+}
+.u-dialog-login-content .m-login-qr .g-qr-success {
+  padding-top: 60px;
+}
+.u-dialog-login-content .m-login-qr .g-qr-success .icon-s {
+  width: 70px;
+  height: 130px;
+  margin: 0 auto;
+  background: url(../../images/member/qrlogin-success.png?170726) 0 0 no-repeat;
+}
+.u-dialog-login-content .m-login-qr .g-qr-success p {
+  text-align: center;
+  color: #666;
+  margin-top: 3px;
+}
+.u-dialog-login-content .m-login-qr .g-qr-success p.xs {
+  margin-top: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.u-dialog-login-content .regist-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 20px;
+}
+
+.u-dialog-login-content .regist-link a {
+    display: block;
+    line-height: 18px;
+    font-size: 14px;
+    color: #d7063b;
+}
+
+.u-dialog-login-content .regist-link a span {
+    vertical-align: top;
+}
+
+.u-dialog-login-content .regist-link a i {
+    display: inline-block;
+    width: 15px;
+    height: 18px;
+    *margin-right: 5px;
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -75px -40px;
+}
+
+.u-dialog-login-content .u-msg-wrap {
+    height: 24px;
+    line-height: 24px;
+    padding: 43px 0 2px;
+    *padding-bottom: 1px;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px 0 30px;
+    position: relative;
+    color: #d7063b;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg.msg-warn {
+    border: 1px solid #ffe9b1;
+    background: #fff4d8;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg.msg-warn i {
+    background: url(../../images/fn-icon.png?170726) no-repeat 0 0;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg.msg-err {
+    border: 1px solid #ffbdbe;
+    background: #ffebeb;
+    display: none;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg.msg-err i {
+    background: url(../../images/member/dialog-login.png?170726) no-repeat 0 -40px;
+}
+
+.u-dialog-login-content .u-msg-wrap .msg i {
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.u-dialog-login-content .u-input {
+    position: relative;
+}
+
+.u-dialog-login-content .u-input .u-txt {
+    width: 246px;
+    height: 18px;
+    border: 1px solid #ccc;
+    padding: 10px 10px 10px 47px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+.u-dialog-login-content .u-input .u-txt.u-txt-err {
+    border-color: #d7063b;
+}
+
+.u-dialog-login-content .u-input .u-txt.u-txt-focus {
+    border-color: #999;
+}
+
+.u-dialog-login-content .u-input .u-label {
+    width: 41px;
+    height: 38px;
+    border-right: 1px solid #eee;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    *left: 2px;
+    *top: 2px;
+}
+
+.u-dialog-login-content .u-input .u-name {
+    background: url(../../images/member/dialog-login.png?170726) no-repeat 0 0;
+}
+
+.u-dialog-login-content .u-input .u-pwd {
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -39px 0;
+}
+
+.u-dialog-login-content .u-input .u-phone {
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -78px 0;
+}
+
+.u-dialog-login-content .u-input .get-code {
+    display: block;
+    width: 110px;
+    height: 28px;
+    line-height: 28px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    *top: 7px;
+    color: #333;
+    background: #eee;
+    text-align: center;
+}
+
+.u-dialog-login-content .u-input .get-code:hover {
+    color: #d7063b;
+}
+
+.u-dialog-login-content .u-input .get-code.z-dis {
+    color: #999;
+}
+
+.u-dialog-login-content .u-safe {
+    position: relative;
+    line-height: 12px;
+}
+
+.u-dialog-login-content .u-safe .auto label {
+    color: #666;
+    cursor: pointer;
+}
+
+.u-dialog-login-content .u-safe .u-ckb {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.u-dialog-login-content #login-mobile .u-safe .forget {
+  display: none;
+}
+.u-dialog-login-content .u-safe .forget {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.u-dialog-login-content .u-safe .forget a {
+    color: #666;
+}
+
+.u-dialog-login-content .u-safe .forget a:hover {
+    text-decoration: underline;
+}
+
+.u-dialog-login-content .u-btn a {
+    display: block;
+    width: 305px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+    background-color: #d7063b;
+    cursor: pointer;
+}
+
+.u-dialog-login-content .u-btn a:hover {
+    background-color: #d5065f;
+}
+
+.u-dialog-login-content .u-authcode {
+    position: relative;
+}
+
+.u-dialog-login-content .u-authcode .u-txt {
+    width: 93px;
+    padding: 10px 10px;
+    vertical-align: middle;
+    font-size: 14px;
+    text-align: center;
+}
+
+.u-dialog-login-content .u-authcode .u-txt.u-txt-err {
+    border-color: #d7063b;
+}
+
+.u-dialog-login-content .u-authcode .u-txt.u-txt-focus {
+    border-color: #999;
+}
+
+.u-dialog-login-content .u-authcode .code-img {
+    width: 66px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.u-dialog-login-content .u-authcode a {
+    color: #2176dd;
+}
+
+.u-dialog-login-content .u-authcode a:hover {
+    text-decoration: underline;
+}
+
+.u-dialog-login-content .m-login-gate {
+    width: 305px;
+    margin-left: -20px;
+}
+
+.u-dialog-login-content .mobile {
+    width: 305px;
+    height: 16px;
+    line-height: 16px;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    font-size: 0;
+}
+
+.u-dialog-login-content .mobile .item {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    font-size: 14px;
+    line-height: 14px;
+    width: 152px;
+    border-left: 1px solid #ddd;
+    color: #d7063b;
+}
+
+.u-dialog-login-content .mobile .item span {
+    vertical-align: top;
+    line-height: 14px;
+}
+
+.u-dialog-login-content .mobile .item:first-child {
+    border: none;
+    color: #666;
+}
+
+.u-dialog-login-content .mobile .item .ico-phone {
+    display: inline-block;
+    width: 12px;
+    height: 18px;
+    margin-top: -2px;
+    margin-right: 6px;
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -44px -40px;
+}
+
+.u-dialog-login-content .mobile .item .ico-arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../../images/member/dialog-login.png?170726) no-repeat -58px -40px;
+}
+
+.u-dialog-login-content .account {
+    width: 305px;
+    height: 21px;
+    line-height: 20px;
+    padding: 12px 20px 13px;
+    color: #999;
+    background: #eee;
+    word-spacing: -3px;
+}
+
+.u-dialog-login-content .account dt,
+.u-dialog-login-content .account dd {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+.u-dialog-login-content .account dd a {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.u-dialog-login-content .account .qq {
+    background: url(../../images/member/login/enterprise.png?170726) no-repeat 0 0;
+}
+
+.u-dialog-login-content .account .qq:hover {
+    background-position: -20px 0;
+}
+
+.u-dialog-login-content .account .wechat {
+    margin-left: 10px;
+    background: url(../../images/member/login/enterprise.png?170726) no-repeat 0px -20px;
+}
+
+.u-dialog-login-content .account .wechat:hover {
+    background-position: -20px -20px;
+}
+
+
+/**大小写键盘锁定**/
+
+.u-caps-warming {
+    display: none;
+    position: absolute;
+    left: 40px;
+    top: 35px;
+    line-height: 20px;
+    padding: 3px 9px;
+    background: #FFFDEE;
+    border: 1px solid #FFD8A3;
+    z-index: 2;
+}
+
+.u-caps-warming em {
+    border-color: transparent transparent #FFD8A3 transparent;
+    border-width: 0 6px 6px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 5;
+    top: -6px;
+    left: 20px;
+}
+
+.u-caps-warming span {
+    border-color: transparent transparent #FFFDEE transparent;
+    border-width: 0 6px 6px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 5;
+    top: -5px;
+    left: 20px;
+}
+
+
+/**大小写键盘锁定end**/
+
+
+/**start异地对话框*/
+
+.g-diff-login {
+    display: none;
+    padding-top: 20px;
+    font-family: "微软雅黑";
+}
+
+.g-diff-login .m-tip {
+    line-height: 22px;
+    padding-left: 15px;
+}
+
+.g-diff-login .m-tip i {
+    margin-left: -15px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../../images/icon_light.png?170726) no-repeat;
+}
+
+.g-diff-login .m-tel {
+    margin: 15px 0 0;
+    padding-left: 20px;
+}
+
+.g-diff-login .m-code {
+    height: 38px;
+    margin: 15px 0 0;
+    padding-left: 43px;
+    position: relative;
+}
+
+.g-diff-login .m-code label {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+}
+
+.g-diff-login .m-code input {
+    font-family: "微软雅黑";
+    float: left;
+    padding: 0 5px;
+    color: #666;
+    border: 1px solid #ddd;
+    height: 26px;
+    width: 80px;
+}
+
+.g-diff-login .m-code a {
+    margin: 0 0 0 10px;
+    float: left;
+    text-align: center;
+    display: block;
+    width: 105px;
+    height: 26px;
+    line-height: 26px;
+    background: #f6f6f6;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.g-diff-login .m-code .u-errmsg {
+    display: none;
+    position: absolute;
+    left: 90px;
+    top: 33px;
+    padding: 3px 10px;
+    background: #fff3f3;
+    border: 1px solid #ffbdbe;
+    color: #DA3A4C;
+}
+
+.g-diff-login .m-code a.disable {
+    color: #CCCCCC;
+    text-decoration: none;
+}
+
+.g-diff-login .m-btns {
+    margin: 45px 0 40px 0;
+    text-align: center;
+}
+
+.g-diff-login .m-btns a {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    width: 108px;
+    background: #d7063b;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.g-diff-login .m-btns a:hover {
+    background: #d5065f;
+}
+
+
+/**end异地对话框*/

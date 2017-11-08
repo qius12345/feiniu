@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/shoppingcart.css"/>
+    <title></title>
+</head>
+<body>
+<div class="sh-header">
+<div class="sh-top">
+  <div class="lf"> <span id="user">hi,</span> <a href="#">退出</a></div>
+    <div class="rt top-list">
+        <ul>
+            <li><a href="#">我的飞牛</a></li>
+            <li class="line"></li>
+            <li><a href="#">我的订单</a></li>
+            <li class="line"></li>
+            <li class="top-cart"><a href="#" >卡券充值</a></li>
+            <li class="line"></li>
+            <li class="top-ser">
+                <a href="#">客户服务</a>
+                <ol>
+                    <li>帮助中心</li>
+                    <li>在线客服</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+ <div class="logo">
+     <a href="index.html"><img src="images/logimages/fn_index_logo.png"></a>
+ </div>
+  <div id="main">
+      <div class="header">
+          <table>
+              <thead>
+              <tr>
+                  <th><input type="checkbox" id="selectAll"/>
+                      <span>全选</span>
+                  </th>
+                  <th>商品名称</th>
+                  <th>单价（元）</th>
+                  <th>数量</th>
+                  <th>小计</th>
+                  <th>操作</th>
+              </tr>
+              </thead>
+              <tbody id="cart-image">
+                  <tr>
+                      <td>
+                          <input type="checkbox"/>
+                          <div class="lf"><img src="images/producting/1.jpg" alt=""/></div>
+                      </td>
+                      <td><a href="#">不二家 棒棒糖20支装（香醇牛奶+乳酸牛奶）116g/袋</a></td>
+                      <td>￥15.00</td>
+                      <td>
+                          <button>-</button>
+                          <input type="text" value="1"/>
+                          <button>+</button>
+                      </td>
+                      <td><span>￥15.00</span></td>
+                      <td><a href="">删除</a></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="checkbox"/>
+                          <div class="lf"><img src="images/producting/2.jpg" alt=""/></div>
+                      </td>
+                      <td><a href="#">不二家 棒棒糖20支装（果味）125g/袋</a></td>
+                      <td>￥13.50</td>
+                      <td>
+                          <button>-</button>
+                          <input type="text" value="1"/>
+                          <button>+</button>
+                      </td>
+                      <td><span>￥14.90</span></td>
+                      <td><a href="">删除</a></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="checkbox"/>
+                          <div class="lf"><img src="images/producting/3.jpg" alt=""/></div>
+                      </td>
+                      <td><a href="#">康元 香酥条饼干（清爽）350g/袋</a></td>
+                      <td>￥14.90</td>
+                      <td>
+                          <button>-</button>
+                          <input type="text" value="1"/>
+                          <button>+</button>
+                      </td>
+                      <td><span>￥13.50</span></td>
+                      <td><a href="">删除</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="cart-count">
+          <div class="contain">
+             <div class="cart-co-lf"></div>
+              <div class="cart-co-rt">
+                  总计：￥<span class="count-details">0.00</span>
+                    <button class="total-btn">立即结算</button>
+
+              </div></div>
+      </div>
+  </div>
+  <div id="foot-content"></div>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/shopping.js"></script>
+</body>
+</html>
